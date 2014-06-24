@@ -19,19 +19,23 @@ function sendPush(){
 	apnConnection.pushNotification(note, myDevice);
 }
 
+function sendResponse(var res, var httpCode, var page){
+	res.writeHead(httpCpde, { 'Content-Type': 'text/plain' });
+	res.end(page);
+}
+
 var server=http.createServer(function(req,res){
     var pathname=url.parse(req.url).pathname;
     switch(pathname){
         case '/sendpush':{
 			sendPush();
-			res.writeHead(200, {'Content-Length': body.length, 'Content-Type': 'text/plain' });
-            res.end('sendpush');
+			sendResponse(res, 200, "sendpush");
 			
 			break;
 		}
         default:{
-			res.writeHead(200, {'Content-Length': body.length, 'Content-Type': 'text/plain' });
-            res.end('default');
+			sendResponse(res, 200, "default");
+
 			break;
 		}
     }
