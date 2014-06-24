@@ -29,7 +29,6 @@ var server=http.createServer(function(req,res){
 			break;
 		}
         default:{
-			res.writeHead(200, {'Content-Length': body.length, 'Content-Type': 'text/plain' });
             res.end('default');
 			break;
 		}
