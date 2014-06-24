@@ -19,8 +19,8 @@ function sendPush(){
 	apnConnection.pushNotification(note, myDevice);
 }
 
-function sendResponse(var res, var httpCode, var page){
-	res.writeHead(httpCpde, { 'Content-Type': 'text/plain' });
+function sendResponse(res, httpCode, page){
+	res.writeHead(httpCode, { 'Content-Type': 'text/plain' });
 	res.end(page);
 }
 
