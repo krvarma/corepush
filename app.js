@@ -1,6 +1,7 @@
 var apn = require('apn');
 var http=require('http');
 var url=require('url');
+var port = process.env.PORT || 1337;
 
 var token = "e35a16bed9ba5fcbaade93d110e96a8485ce21c8e1b50e4c6f46ecc50f88c50a"
 var options = { };
@@ -35,4 +36,4 @@ var server=http.createServer(function(req,res){
 		}
     }
 
-}).listen(8080);
+}).listen(port);
